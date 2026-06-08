@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SleepSense OSA — Sleep Report</title>
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+
+<!-- Night sky -->
+<div class="sky-bg"></div>
+<div class="stars" id="stars"></div>
+<div class="cloud-layer">
+  <svg viewBox="0 0 900 220" preserveAspectRatio="xMidYMax meet"
+       style="width:100%;height:100%;opacity:0.18">
+    <ellipse cx="120" cy="180" rx="110" ry="50" fill="#c8d8e8"/>
+    <ellipse cx="80"  cy="165" rx="70"  ry="42" fill="#d4e0ee"/>
+    <ellipse cx="155" cy="170" rx="80"  ry="38" fill="#c8d8e8"/>
+    <ellipse cx="380" cy="200" rx="150" ry="55" fill="#bfd0e0"/>
+    <ellipse cx="320" cy="188" rx="100" ry="44" fill="#ccdaeb"/>
+    <ellipse cx="440" cy="192" rx="110" ry="42" fill="#bfd0e0"/>
+    <ellipse cx="700" cy="185" rx="130" ry="50" fill="#c2d2e2"/>
+    <ellipse cx="650" cy="172" rx="90"  ry="40" fill="#ccd8e8"/>
+    <ellipse cx="760" cy="178" rx="100" ry="44" fill="#bfcede"/>
+    <ellipse cx="880" cy="210" rx="80"  ry="40" fill="#c8d4e4"/>
+  </svg>
+</div>
+
+<div class="wrap">
+
+  <!-- TOP BAR -->
+  <div class="top-bar fade-up">
+    <div class="logo-mark">SleepSense</div>
+    <div class="study-tag">Study · SSO-2024-0847 · 07 Jun 2026</div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs fade-up">
+    <button class="tab active" onclick="showPanel('patient', this)">For You</button>
+    <button class="tab"        onclick="showPanel('clinical', this)">Physician View</button>
+    <button class="tab"        onclick="showPanel('insurer', this)">Insurer View</button>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PATIENT PANEL                               -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="panel active" id="panel-patient">
+
+    <div class="hero fade-up">
+      <div class="hero-text">
+        <h1>Good morning,<br><em>Marcus.</em></h1>
+        <p>Your sleep study from last night has been looked at carefully. Here's what we found — in plain, human language.</p>
+      </div>
+      <div class="moon-wrap">
+        <div class="moon">
+          <div class="moon-crater" style="width:18px;height:18px;top:30px;left:60px"></div>
+          <div class="moon-crater" style="width:10px;height:10px;top:75px;left:35px"></div>
+          <div class="moon-crater" style="width:14px;height:14px;top:55px;left:85px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="score-section fade-up">
+      <div class="score-ring-wrap">
+        <svg viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="64" fill="none"
+                  stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+          <circle cx="80" cy="80" r="64" fill="none"
+                  stroke="url(#arcGrad)" stroke-width="8"
+                  stroke-dasharray="153 251" stroke-dashoffset="63"
+                  stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%"   stop-color="#c8a870"/>
+              <stop offset="100%" stop-color="#c4907a"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="score-center">
+          <div class="score-num">18.4</div>
+          <div class="score-unit">events/hr</div>
+        </div>
+      </div>
+      <div class="score-info">
+        <div class="status-chip moderate">Moderate sleep apnea</div>
+        <h3>Your breathing paused about 18 times an hour while you slept.</h3>
+        <p>Each time, your airway narrowed briefly and your brain quietly woke you up to reopen it — usually without you noticing. This is very common, and very treatable.</p>
+      </div>
+    </div>
+
+    <div class="metrics-row fade-up">
+      <div class="metric-card">
+        <span class="metric-icon">💨</span>
+        <div class="metric-val amber">91%</div>
+        <div class="metric-desc">Oxygen level at its lowest — healthy is 95% or above</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-icon">🔊</span>
+        <div class="metric-val rose">68%</div>
+        <div class="metric-desc">of the night spent snoring, mostly while on your back</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-icon">🌙</span>
+        <div class="metric-val sage">7h 12m</div>
+        <div class="metric-desc">total recording — good length for a reliable analysis</div>
+      </div>
+    </div>
+
+    <div class="insight fade-up">
+      <div class="insight-label">A note worth knowing</div>
+      <p>Your breathing difficulties were <em>three times worse</em> when sleeping on your back compared to your side. Simply shifting your sleep position may already help — and is worth trying tonight.</p>
+    </div>
+
+    <div class="next-steps fade-up">
+      <div class="next-steps-title">What happens next</div>
+      <div class="step-item">
+        <div class="step-num-circle">1</div>
+        <div class="step-body">
+          <h4>Your doctor receives this report</h4>
+          <p>A full clinical summary has been sent automatically.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-circle">2</div>
+        <div class="step-body">
+          <h4>A sleep specialist consultation</h4>
+          <p>Based on your results, a specialist visit is recommended — your pattern is a little more complex than simple sleep apnea.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-circle">3</div>
+        <div class="step-body">
+          <h4>Treatment plan</h4>
+          <p>Options may include a CPAP machine, a positional sleep aid, or a full overnight study for more detail.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-section fade-up">
+      <div class="chat-header-area">
+        <div class="chat-avatar-big">🌿</div>
+        <div>
+          <div class="chat-title">Ask anything</div>
+          <div class="chat-sub">Your AI sleep companion is here to explain, gently.</div>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg">
+          <div class="bubble-av ai">🌿</div>
+          <div class="bubble ai">Hi Marcus. I've read through your results and I'm happy to answer anything — in plain language, no medical jargon unless you want it.</div>
+        </div>
+      </div>
+
+      <div class="quick-qs">
+        <div class="quick-q" onclick="askQ('Is sleep apnea dangerous if untreated?')">Is it dangerous?</div>
+        <div class="quick-q" onclick="askQ('What is a CPAP machine and will I need one?')">What is a CPAP?</div>
+        <div class="quick-q" onclick="askQ('Why is my apnea worse on my back?')">Why worse on my back?</div>
+        <div class="quick-q" onclick="askQ('Can losing weight help my sleep apnea?')">Can weight loss help?</div>
+      </div>
+
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput"
+               placeholder="Ask anything about your sleep…"
+               onkeydown="if(event.key==='Enter') sendChat()">
+        <button class="send-btn" onclick="sendChat()">Send</button>
+      </div>
+    </div>
+
+  </div><!-- /panel-patient -->
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- CLINICAL PANEL                              -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="panel" id="panel-clinical">
+    <div class="clin-section">
+      <div style="margin-top:48px">
+        <div class="section-title">Clinical Report</div>
+        <div class="section-sub">Marcus T. · 54 · Male · SSO-2024-0847 · 07-Jun-2026</div>
+      </div>
+
+      <div class="clin-grid">
+
+        <div class="clin-card">
+          <h4>Sleep Study Metrics</h4>
+          <div class="data-row"><span>AHI</span><span><span class="pill mod">18.4/hr — Moderate</span></span></div>
+          <div class="data-row"><span>ODI (≥4% drops)</span><span>12.4/hr</span></div>
+          <div class="data-row"><span>SpO₂ nadir</span><span style="color:var(--gold)">91%</span></div>
+          <div class="data-row"><span>CT90 (time below 90%)</span><span>3.2%</span></div>
+          <div class="data-row"><span>PAT amplitude ratio</span><span>0.47</span></div>
+          <div class="data-row"><span>Mean HR</span><span>62 bpm</span></div>
+          <div class="data-row"><span>Supine AHI</span><span><span class="pill high">28.7/hr</span></span></div>
+          <div class="data-row"><span>Non-supine AHI</span><span>9.1/hr</span></div>
+          <div class="data-row"><span>Snoring % TST</span><span style="color:var(--rose)">68.4%</span></div>
+          <div class="data-row"><span>Signal quality (SQI)</span><span><span class="pill ok">94% valid</span></span></div>
+        </div>
+
+        <div class="clin-card">
+          <h4>AI Classification</h4>
+          <div class="data-row"><span>Classification</span><span><span class="pill mod">Complex — refer</span></span></div>
+          <div class="data-row"><span>Confidence</span><span>87.2%</span></div>
+          <div class="data-row"><span>Uncertainty flag</span><span style="color:var(--gold)">Borderline AHI 15–20</span></div>
+          <div class="data-row"><span>STOP-BANG</span><span>6/8 — High risk</span></div>
+          <div class="data-row"><span>PSG recommended</span><span style="color:var(--rose)">Yes</span></div>
+          <div class="data-row"><span>Positional component</span><span style="color:var(--sage)">Likely — 3× difference</span></div>
+          <div class="data-row"><span>Central apnea prob.</span><span><span class="pill ok">Low</span></span></div>
+          <div class="data-row"><span>CV risk flag</span><span style="color:var(--gold)">Moderate (HTN + AHI)</span></div>
+          <div class="data-row"><span>CPT code</span><span>95800</span></div>
+          <div class="data-row"><span>Model</span><span style="font-size:11px;color:var(--soft)">XGBoost + fusion v1.5</span></div>
+        </div>
+
+        <div class="clin-card chart-card">
+          <h4>SpO₂ — Full Night</h4>
+          <canvas id="spO2Canvas"></canvas>
+          <div class="chart-legend">
+            <span style="color:var(--sage)">— SpO₂</span>
+            <span style="color:var(--gold)">— 90% threshold</span>
+            <span style="color:var(--rose)">● desaturation events</span>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <h4>Recommendations</h4>
+          <div class="rec-item">Refer for in-lab PSG: borderline AHI 18.4 with comorbid hypertension exceeds confidence threshold for direct CPAP prescription</div>
+          <div class="rec-item">Strong positional component (supine AHI 28.7 vs lateral 9.1) — consider positional therapy trial ahead of PSG</div>
+          <div class="rec-item">Cardiovascular workup: OSA with hypertension warrants nocturnal BP monitoring (Logan et al., 2001)</div>
+          <div class="rec-item">Model trained on SHHS/MESA (n=5,804 PSG recordings). Clinical judgment overrides where confident assessment is required.</div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /panel-clinical -->
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- INSURER PANEL                               -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="panel" id="panel-insurer">
+    <div style="margin-top:48px;margin-bottom:6px" class="section-title">Payer Report</div>
+    <div class="section-sub">Member ID: MCR-2024-TT847 · Medicare Advantage · CPT 95800</div>
+
+    <div class="ins-grid">
+      <div class="ins-kpi">
+        <div class="ins-kpi-val green">$326</div>
+        <div class="ins-kpi-label">Total test cost</div>
+        <div class="ins-kpi-note">vs $1,800–3,000 for in-lab PSG first-line</div>
+      </div>
+      <div class="ins-kpi">
+        <div class="ins-kpi-val green">82%</div>
+        <div class="ins-kpi-label">Cases resolved at HSAT level — no PSG needed</div>
+        <div class="ins-kpi-note">Projected across simple OSA cohort</div>
+      </div>
+      <div class="ins-kpi">
+        <div class="ins-kpi-val gold">$167</div>
+        <div class="ins-kpi-label">Medicare CPT 95800 reimbursement</div>
+        <div class="ins-kpi-note">Existing code — no new billing required</div>
+      </div>
+      <div class="ins-kpi">
+        <div class="ins-kpi-val gold">18%</div>
+        <div class="ins-kpi-label">Referred for targeted PSG</div>
+        <div class="ins-kpi-note">This patient — moderate/complex classification</div>
+      </div>
+    </div>
+
+    <div class="cost-vis">
+      <div class="cost-vis-title">Cost per diagnosis pathway</div>
+      <div class="cost-bar-row">
+        <div class="cost-label">In-lab PSG</div>
+        <div class="cost-bar-bg"><div class="cost-bar-fill" style="width:100%;background:rgba(196,144,122,0.5)"></div></div>
+        <div class="cost-amount" style="color:var(--rose)">$1,800–3,000</div>
+      </div>
+      <div class="cost-bar-row">
+        <div class="cost-label">Existing HSAT</div>
+        <div class="cost-bar-bg"><div class="cost-bar-fill" style="width:22%;background:rgba(200,168,112,0.5)"></div></div>
+        <div class="cost-amount" style="color:var(--gold)">$450–600</div>
+      </div>
+      <div class="cost-bar-row">
+        <div class="cost-label">SleepSense OSA</div>
+        <div class="cost-bar-bg"><div class="cost-bar-fill" style="width:12%;background:rgba(168,184,144,0.7)"></div></div>
+        <div class="cost-amount" style="color:var(--sage)">~$326</div>
+      </div>
+    </div>
+
+    <div class="pathway-duo">
+      <div class="path-card">
+        <h5>Traditional pathway</h5>
+        <div class="path-step"><div class="path-num old">1</div><div><div class="path-txt">GP referral to sleep specialist</div><div class="path-cost">Wait 4–12 wks · $200</div></div></div>
+        <div class="path-step"><div class="path-num old">2</div><div><div class="path-txt">In-lab PSG overnight</div><div class="path-cost">Wait 2–6 wks · $1,800–3,000</div></div></div>
+        <div class="path-step"><div class="path-num old">3</div><div><div class="path-txt">Results + prescription</div><div class="path-cost">1–2 wks · $150</div></div></div>
+        <div class="path-step"><div class="path-num old">4</div><div><div class="path-txt">CPAP initiation</div><div class="path-cost">$500–1,000</div></div></div>
+        <div class="path-total old">3–6 months to treatment · ~$2,650–4,350</div>
+      </div>
+      <div class="path-card">
+        <h5>SleepSense pathway</h5>
+        <div class="path-step"><div class="path-num new">1</div><div><div class="path-txt">GP prescribes home test</div><div class="path-cost">Same day · $326</div></div></div>
+        <div class="path-step"><div class="path-num new">2</div><div><div class="path-txt">Patient tests at home</div><div class="path-cost">1–3 nights · no hospital</div></div></div>
+        <div class="path-step"><div class="path-num new">3</div><div><div class="path-txt">AI triage + physician review</div><div class="path-cost">Results in 1–3 days</div></div></div>
+        <div class="path-step"><div class="path-num new">4</div><div><div class="path-txt">Targeted PSG for complex cases only</div><div class="path-cost">$1,800 — not routine</div></div></div>
+        <div class="path-total new">2–4 weeks to treatment · ~$2,176</div>
+      </div>
+    </div>
+
+    <div class="clin-card" style="margin-top:16px">
+      <h4>Reimbursement Documentation</h4>
+      <div class="data-row"><span>CPT Code</span><span>95800 — Sleep study, unattended; SpO₂ + HR + PAT + sleep time</span></div>
+      <div class="data-row"><span>Medicare allowable</span><span style="color:var(--sage)">$167.00</span></div>
+      <div class="data-row"><span>ICD-10 primary</span><span>G47.33 — Obstructive sleep apnea</span></div>
+      <div class="data-row"><span>ICD-10 secondary</span><span>I10 — Essential hypertension</span></div>
+      <div class="data-row"><span>Device clearance</span><span style="font-size:11px;color:var(--soft)">510(k) pending — predicates K173483, K192557</span></div>
+    </div>
+
+  </div><!-- /panel-insurer -->
+
+</div><!-- /wrap -->
+
+<!-- ── SCRIPTS (order matters) ── -->
+<script src="src/components/stars.js"></script>
+<script src="src/components/tabs.js"></script>
+<script src="src/components/charts.js"></script>
+<script src="src/components/chat.js"></script>
+<script>
+  /* App boot */
+  document.addEventListener('DOMContentLoaded', () => {
+    initStars('stars', 80);
+  });
+</script>
+
+</body>
+</html>

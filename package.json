@@ -1,0 +1,14 @@
+{
+  "name": "sleepsense-osa",
+  "version": "1.0.0",
+  "description": "SleepSense OSA — AI-powered home sleep apnea screening demo",
+  "scripts": {
+    "dev": "npx serve . -l 3000 --no-clipboard",
+    "start": "npx serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.3"
+  },
+  "keywords": ["sleep-apnea", "OSA", "medtech", "biodesign"],
+  "license": "MIT"
+}
